@@ -1,0 +1,2 @@
+adminmenu-disable-controler
+===========================
