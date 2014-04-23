@@ -1,0 +1,61 @@
+.adminmenu-disable-controler-progress-cover {
+	position: fixed;
+	top : 0;
+	left : 0;
+	filter: alpha(opacity=25);
+	-moz-opacity:0.25;
+	opacity:0.25;
+	background-color: #666;
+	width : 100%;
+	height: 100%;
+	z-index: 1000;
+}
+.adminmenu-disable-controler-progress-message-wrap {
+	background-color: #FFF;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	left : 50%;
+	z-index: 1100;
+	padding: 36px;
+}
+.adminmenu-disable-controler-submenu {
+	margin-left: 20px;
+	font-size: 90%;
+	color : #888;
+}
+.adminmenu-disable-controler-table thead th,
+.adminmenu-disable-controler-table td {
+	text-align: center;
+}
+
+.adminmenu-disable-controler-table tbody th {
+	text-align: left;
+	overflow: inherit;
+	width: auto;
+}
+
+.adminmenu-disable-controler-submenu-row:nth-child(even) {
+    background:#FDFAFA;
+}
+.adminmenu-disable-controler-submenu-row:nth-child(odd) {
+    background:#FAFDFD;
+}
+
+.adminmenu-disable-controler-cap-row:nth-child(even) {
+    background:#FAFAFD;
+}
+.adminmenu-disable-controler-cap-row:nth-child(odd) {
+    background:#FDFAFD;
+}
+
+.adminmenu-disable-controler-submenu-row,
+.adminmenu-disable-controler-cap-row {
+	display: none;
+}
+
+.adminmenu-disable-controler-opener-block {
+	font-size: 82%;
+	margin-right: 10px;
+	margin-top: 5px;
+}
