@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Adminmenu Disable Controler
-Plugin URI: http://google.com
+Plugin URI: https://github.com/m-seino/adminmenu-disable-controler
 Description: You are able to flexible authorized setting for Custom post types and Custom roles.
 Version: 0.1
 Author: Maiko Seino
-Author URI: http://hoge.com
+Author URI: http://incr.jp
 License: GPLv2
 */
 
