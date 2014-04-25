@@ -5,7 +5,6 @@ global $wp_post_types;
 global $menu;
 global $submenu;
 $plugins_url = plugins_url();
-
 ?>
 
 <h1><?php $CA->_($CA::$plugin_name); ?></h1>
@@ -21,8 +20,8 @@ $plugins_url = plugins_url();
 				<?php  $CA->_($rolekey); ?>
 				<p>
 					<?php $CA->_('all'); ?>:
-					<a href="#<?php $CA->_($rolekey); ?>" class="adminmenu-disable-controler-open-all-check"><?php $CA->_('check'); ?></a> / 
-					<a href="#<?php $CA->_($rolekey); ?>" class="adminmenu-disable-controler-open-all-uncheck"><?php $CA->_('uncheck'); ?></a>
+					<a href="#<?php $CA->_d($rolekey,array('.')); ?>" class="adminmenu-disable-controler-open-all-check"><?php $CA->_('check'); ?></a> / 
+					<a href="#<?php $CA->_d($rolekey,array('.')); ?>" class="adminmenu-disable-controler-open-all-uncheck"><?php $CA->_('uncheck'); ?></a>
 				</p>
 			</th>
 			<?php endforeach; ?>
@@ -50,13 +49,12 @@ $plugins_url = plugins_url();
 						<?php $CA->_('表示'); ?>：
 					<?php endif; ?>
 					<?php if (is_array($submenu[$menuvalue[2]])): ?>
-					<a href="#adminmenu-disable-controler-submenu-row-<?php $CA->_($auth_menukey); ?>" class="adminmenu-disable-controler-open">
+					<a href="#adminmenu-disable-controler-submenu-row-<?php $CA->_d($auth_menukey,array('.')); ?>" class="adminmenu-disable-controler-open">
 						<?php $CA->_('サブメニュー'); ?>
 					</a>
 					<?php endif; ?>
-
 					<?php if (isset($wp_post_types[$menukey]->cap)): ?>
-					<a href="#adminmenu-disable-controler-cap-row-<?php $CA->_($menukey); ?>" class="adminmenu-disable-controler-open">
+					<a href="#adminmenu-disable-controler-cap-row-<?php $CA->_d($menukey,array('.')); ?>" class="adminmenu-disable-controler-open">
 						<?php $CA->_('権限'); ?>
 					</a>
 					<?php endif; ?>
@@ -66,7 +64,7 @@ $plugins_url = plugins_url();
 			<?php foreach ($wp_roles->roles as $rolekey => $rolevalue): ?>
 			<?php if ($rolekey === 'administrator'){continue;} ?>
 			<td>
-				<input name="setting_check" value="<?php $CA->_($rolekey.','.$auth_menukey); ?>" id="<?php $CA->_($rolekey.'-'.$auth_menukey); ?>-" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_($rolekey); ?>" >
+				<input name="setting_check" value="<?php $CA->_($rolekey.','.$auth_menukey); ?>" id="<?php $CA->_($rolekey.'-'.$auth_menukey); ?>-" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_d($rolekey,array('.')); ?>" >
 			</td>
 			<?php endforeach; ?>
 			<?php /* roles */ ?>
@@ -74,7 +72,7 @@ $plugins_url = plugins_url();
 		<?php if (is_array($submenu[$menuvalue[2]])): ?>
 		<?php /* submenus */ ?>
 		<?php foreach ($submenu[$menuvalue[2]] as $subkey => $subvalue): ?>
-		<tr class="adminmenu-disable-controler-submenu-row adminmenu-disable-controler-submenu-row-<?php $CA->_($auth_menukey); ?>">
+		<tr class="adminmenu-disable-controler-submenu-row adminmenu-disable-controler-submenu-row-<?php $CA->_d($auth_menukey,array('.')); ?>">
 			<th>
 				<span class="adminmenu-disable-controler-submenu">
 				<?php  
@@ -87,7 +85,7 @@ $plugins_url = plugins_url();
 			<?php foreach ($wp_roles->roles as $rolekey => $rolevalue): ?>
 			<?php if ($rolekey === 'administrator'){continue;} ?>
 			<td>
-				<input name="setting_check" value="<?php $CA->_($rolekey.','.$auth_menukey.','.$subkey); ?>" id="<?php $CA->_($rolekey.'-'.$auth_menukey.'-'.$subkey); ?>" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_($rolekey); ?>">
+				<input name="setting_check" value="<?php $CA->_($rolekey.','.$auth_menukey.','.$subkey); ?>" id="<?php $CA->_($rolekey.'-'.$auth_menukey.'-'.$subkey); ?>" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_d($rolekey,array('.')); ?>">
 			</td>
 			<?php endforeach; ?>
 			<?php /* roles */ ?>
@@ -96,7 +94,7 @@ $plugins_url = plugins_url();
 		<?php endif; ?>
 		<?php if (isset($wp_post_types[$menukey]->cap)): ?>
 		<?php foreach ($wp_post_types[$menukey]->cap as $capkey => $capvalue): ?>
-		<tr class="adminmenu-disable-controler-cap-row adminmenu-disable-controler-cap-row-<?php $CA->_($menukey); ?>">
+		<tr class="adminmenu-disable-controler-cap-row adminmenu-disable-controler-cap-row-<?php $CA->_d($menukey,array('.')); ?>">
 			<th>
 				<span class="adminmenu-disable-controler-submenu">
 				<?php  
@@ -108,7 +106,7 @@ $plugins_url = plugins_url();
 			<?php foreach ($wp_roles->roles as $rolekey => $rolevalue): ?>
 			<?php if ($rolekey === 'administrator'){continue;} ?>
 			<td>
-				<input name="setting_check" value="<?php $CA->_($rolekey.','.$menukey.',,'.$capkey); ?>" id="<?php $CA->_($rolekey.'-'.$menukey.'--'.$capkey); ?>" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_($rolekey); ?>">
+				<input name="setting_check" value="<?php $CA->_($rolekey.','.$menukey.',,'.$capkey); ?>" id="<?php $CA->_($rolekey.'-'.$menukey.'--'.$capkey); ?>" type="checkbox" class="adminmenu_disable_controler_check <?php $CA->_d($rolekey,array('.')); ?>">
 			</td>
 			<?php endforeach; ?>
 			<?php /* roles */ ?>

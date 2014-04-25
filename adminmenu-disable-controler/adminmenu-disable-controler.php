@@ -18,6 +18,13 @@ class AdminmenuDisableControler {
 	public function _($str) {
 		echo htmlspecialchars(__($str));
 	}
+
+	public function _d($str,$del_char = array()){
+		foreach ($del_char as $key => $value) {
+			$str = str_replace($value, '', $str);
+		}
+		$this->_($str);
+	}
 	public function getMenuKey($menu_position) {
 		global $wp_post_types;
 		foreach ($wp_post_types as $key => $value) {
@@ -110,11 +117,17 @@ class AdminmenuDisableControler {
 
 
 		function set_admin_menu_disabled(){
+
 			global $wpdb;
 			global $menu;
 			global $submenu;
 			global $wp_post_types;
 			global $wp_roles;
+
+			// fixme:いいのか・・・？
+			// $the_role = $wp_roles->get_role( 'administrator' );
+			// print_r($the_role->capabilities);
+
 			if(!function_exists('wp_get_current_user')) {
 			    include(ABSPATH . "wp-includes/pluggable.php"); 
 			}
@@ -153,6 +166,7 @@ class AdminmenuDisableControler {
 }
 
 if (is_admin()) {
+
 	$CA = new AdminmenuDisableControler();
 }
 
